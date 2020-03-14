@@ -1,0 +1,43 @@
+import React, { Component } from 'react';
+import { Container, Header, Content, Form, Item, Input, Label,Button,Text } from 'native-base';
+export default class App extends Component {
+  constructor(Props){
+        super(Props);
+
+        this.State = { Numero1:'',Numero2:''};
+        this.Calcular = this.Calcular.bind(this);
+  }
+  Calcular(Event){
+  (this.state.Calcular)
+   alert(" O resultado é :"+ (parseFloat(this.state.Numero1) + parseFloat(this.state.Numero2)));
+
+
+    alert(" O resultado é :" + (parseFloat(this.state.Numero1) - parseFloat(this.state.Numero2)));
+  }   
+
+  render() {
+    return (
+      <Container>
+        <Header />
+        <Content>
+          <Form>
+            <Item floatingLabel>
+              <Label>Numero1</Label>
+              <Input keyboardType ="numeric" onChangeText={(Numero1)=>this.setState({Numero1})}/>
+            </Item>
+            <Item floatingLabel>
+              <Label>Numero2</Label>
+              <Input keyboardType ="numeric" onChangeText={(Numero2)=>this.setState({Numero2})} />
+            </Item>
+          </Form>
+          <Button onPress={this.Calcular}>
+            <Text>soma</Text>
+          </Button>
+          <Button onPress={this.Calcular}>
+            <Text>subtracao</Text>
+          </Button>
+        </Content>
+      </Container>
+    );
+  }
+}
